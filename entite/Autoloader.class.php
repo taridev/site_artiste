@@ -10,8 +10,9 @@ class Autoloader {
 
     static function autoload( $classname ) {
 
-        if( preg_match('/DAO$/', $classname) )
-            require_once ( 'modele/' . $classname . '.php' );
+        // Si le nom de la classe se termine par DAO
+        if( preg_match('/DAO$/', $classname) ) require_once ( 'modele/' . $classname . '.php' );
+        
         else require_once ( 'entite/' .$classname . '.class.php' );
 
     }

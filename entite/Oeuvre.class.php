@@ -12,6 +12,21 @@ class Oeuvre {
     private $petiteImage;
     private $grandeImage;
 
+    /**
+     * Permet d'initialiser une Oeuvre
+     *
+     * @param int $id
+     * @param string $titre
+     * @param int $annee
+     * @param string $technique
+     * @param string $support
+     * @param int $largeur
+     * @param int $hauteur
+     * @param int $prix
+     * @param string $petiteImage
+     * @param string $grandeImage
+     * @return self
+     */
     public function init( $id, $titre, $annee, $technique, $support, $largeur, $hauteur, $prix, $petiteImage, $grandeImage ) {
 
         $this->id = $id;
@@ -30,13 +45,13 @@ class Oeuvre {
     }
     
     /**
-     * Exporte l'oeuvre au format html
+     * Formate une oeuvre en HTML
      *
      * @return string
      */
     public function exportHtml() {
 
-        $result = '<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">' ."\n";
+        $result = '<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">' ."\n";
         $result .= '<h3>[' . $this->id . '] ' . $this->titre .' - ' . $this->annee . ' - ' . $this->prix . ' euros</h3>' . "\n";
         $result = $result . '<p>' . $this->technique . ' sur ' . $this->support . ' : ' . $this->largeur . 'cm X ' . $this->hauteur . 'cm</p>' . "\n";
         $result = $result . '<p><img src="images/' . $this->petiteImage . '" height="50" alt="petite_image_'. $this->id. '"></p>' . "\n";

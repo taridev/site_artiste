@@ -7,6 +7,21 @@ class OeuvreExposee {
     private $oeuvres = [];
 
     /**
+     * Permet de formater une Oeuvre Exposée au format HTML 
+     *
+     * @return string
+     */
+    public function exportHtml() {
+
+        $html = $this->exposition->exportHtml(). "\n";
+        foreach ( $this->oeuvres as $oeuvre ) {
+            $html .= $oeuvre->exportHtml(). "\n";
+        }
+
+        return $html;
+    }
+
+    /**
      * Get the value of exposition
      */ 
     public function getExposition()

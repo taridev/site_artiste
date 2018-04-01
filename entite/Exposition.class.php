@@ -10,6 +10,18 @@ class Exposition {
     private $dateFin;
     private $dateVernissage;
 
+    /**
+     * Permet d'initialiser une Exposition
+     *
+     * @param int $id
+     * @param string $nom
+     * @param string $lieu
+     * @param string $adresse
+     * @param date $dateDebut
+     * @param date $dateFin
+     * @param date $dateVernissage
+     * @return self
+     */
     public function init( $id, $nom, $lieu, $adresse, $dateDebut, $dateFin, $dateVernissage ) {
 
         $this->id = $id;

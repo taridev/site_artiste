@@ -69,7 +69,7 @@
                         <tfoot>
                             <tr>
                                 <td colspan="12" style="display: flex; justify-content: space-around;">
-                                    <button id="add" class="btn-add btn btn-primary btn-xs" data-toggle="modal" data-target="#new">
+                                    <button data-title=\"Nouveau\" id="add" class="btn-add btn btn-primary btn-xs" data-toggle="modal" data-target="#new">
                                         <span class="glyphicon glyphicon-plus"></span>
                                     </button>
                                     <button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete-multiple" id="multiple-delete">
@@ -252,7 +252,7 @@
                     </div>
                     <div class="modal-footer ">
                         <form action="indexSwitch.php?indexOeuvresAdministration=1" method="post" id="delete-multiple-form">
-                            <div id="delete-ids">
+                            <div id="delete-ids" style="display: none;">
                             
                             </div>
                             <button type="submit" form="delete-multiple-form" name="delete-multiple" class="btn btn-success">
@@ -272,21 +272,26 @@
 
     <script>
         $(document).ready(function () {
+            // Réaction au click sur le checkbox checkall
             $("#mytable #checkall").click(function () {
+                // Si on "check" on "check" tous les éléments
                 if ($("#mytable #checkall").is(':checked')) {
                     $("#mytable input[type=checkbox]").each(function () {
                         $(this).prop("checked", true);
                     });
-
+                // Sinon on "uncheck" tout
                 } else {
                     $("#mytable input[type=checkbox]").each(function () {
                         $(this).prop("checked", false);
                     });
                 }
             });
-            // ici
+
+            // Réaction au click sur delete-multiple
             $('#multiple-delete').click(function () {
                 html = '';
+                // Pour chaque element checked: on ajoute le checkbox correspondant 
+                // dans le formulaire de la boite modale correspondante
                 $('[name=ids]:checked').each(function() {
                     html += '<input type="checkbox" name="ids[]" value="'+ $(this).val() +'" checked>';
                 });
@@ -294,20 +299,21 @@
                 $('#delete-ids').html(html);
             });
 
-            $('input[name=ids]').on("change", function() {
-                console.log( $(this).prop('checked') );
-            });
-
+            // Réaction au click sur un bouton "delete-single"
             $('button[id^=delete-]').click(function () {
+                // on parse l'id du bouton pour obtenir l'id de la ligne
                 var id = parseInt($(this).attr('id').split('-')[1]);
-                console.log(id);
+                // on attribue cette id à la valeur de l'input:hidden
+                // de la modale correspondante
                 $('#id-delete').val(id);
             });
 
+            // Réaction au click sur un bouton "edit-single"
             $('[id^=edit-]').click(function () {
-                console.log('la');
+                // on parse l'id du bouton pour obtenir l'id de la ligne
                 var id = parseInt($(this).attr('id').split('-')[1]);
-                console.log($('[id=titre-' + id + ']').text());
+                // On renseigne la valeur de chaque champ par la valeur
+                // qui lui correspond aux valeurs de la ligne du tableau
                 $('#titre').val($('[id=titre-' + id + ']').text());
                 $('#technique').val($('[id=technique-' + id + ']').text());
                 $('#support').val($('[id=support-' + id + ']').text());
@@ -319,6 +325,8 @@
                 $('#petiteImage').val($('[id=petiteImage-' + id + ']').attr('src').split('/')[1]);
                 $('#grandeImage').val($('[id=grandeImage-' + id + ']').attr('src').split('/')[1]);
             });
+
+            // Création des tooltips
             $('[data-toggle=tooltip]').tooltip();
         });
     </script>
