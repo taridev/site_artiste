@@ -1,0 +1,102 @@
+section{
+    min-height: 400px;
+}
+.section{
+    display : flex;
+}
+article{
+    flex:4;
+}
+.aside{
+    border:aqua solid 10px;
+    flex:1;
+}
+
+footer, header{
+    border:black solid 1px;
+    background:aqua;
+}
+h1, h3 {
+    text-align:center;
+}
+h3{
+    background-color: black;
+    color: white;
+    font-size:0.9em;
+    margin-bottom: 0px;
+}
+.articleEtDate, .articleEtDateCacher {
+    display : flex;
+    /* border:black solid 1px; */
+}
+
+.article {
+    flex:7;
+}
+.dateArticle{
+    flex:1;
+    min-width: 100px;
+
+}
+.articleEtDate p, .commentaires{
+    background-color: #CCCCCC;
+    margin-top: 0px;
+}
+
+.articleEtDateCacher p, .commentairesCacher{
+    /* background-color: pink; */
+    margin-top: 0px;
+}
+
+.commentaires .date{
+    text-align:center;
+    margin: 0px;
+    font-style: italic;
+}
+
+.naws{
+    width:70%;
+    margin:auto;
+}
+
+/* Navigation ****************************************************/
+
+#nav{
+    display: flex; /* le menu à l'horizontal */
+}
+ #admin, #deconnexion{
+    /* border:black solid 1px;*/
+    margin-top: 0px; /* pour aligner avec le nav */
+    text-align: right;
+ }
+
+#nav ul {
+    flex:2;
+    /* border:black solid 1px;*/
+    margin-top: 5px; /* pour aligner avec le admin */
+    list-style-type: none; /* pas de point dans la liste à points */
+    display: flex; /* le menu à l'horizontal */
+    margin-left: -30px; /* pour caller les menus à gauche */
+}
+
+#nav li {
+    margin-right: 15px; /* pour espacer les choix */
+}
+#nav a {
+    color: #181818; /* quasi noir  pour supprimer la couleur par défaut de a */
+}
+#nav a:hover { /* effet au passage de la souris */ 
+    border-bottom: 1px solid #181818; */
+}
+
+a{
+    text-decoration:none;
+    color: white;
+}
+header a{
+    color:blue;
+}
+/*
+form {
+     text-align:center;
+}
