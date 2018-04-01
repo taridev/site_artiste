@@ -70,7 +70,7 @@
                         <tfoot>
                             <tr>
                                 <td colspan="12" style="display: flex; justify-content: space-around;">
-                                    <button data-title=\"Nouveau\" id="add" class="btn-add btn btn-primary btn-xs" data-toggle="modal" data-target="#new">
+                                    <button data-title="Nouveau" id="add" class="btn-add btn btn-primary btn-xs" data-toggle="modal" data-target="#new">
                                         <span class="glyphicon glyphicon-plus"></span>
                                     </button>
                                     <button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete-multiple" id="multiple-delete">

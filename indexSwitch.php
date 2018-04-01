@@ -5,7 +5,7 @@
 session_start();
 
 // Système de debug simple
-$debug=1; 
+$debug=0; 
 if($debug==1){ 
 	echo'IndexSwitch.php - SESSION : '; print_r($_SESSION);echo'<br/>'; 
 	echo'POST : ';print_r($_POST);echo'<br/>'; 

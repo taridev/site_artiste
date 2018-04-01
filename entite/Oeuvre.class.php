@@ -96,6 +96,32 @@ class Oeuvre {
                 </tr>";
     }
 
+    public function toTableRowWithoutCheckbox()  {
+        return "
+                    <td id=\"id-{$this->id}\" colspan=\"2\" style=\"text-align: right;\">{$this->id}</td>
+                    <td id=\"titre-{$this->id}\">{$this->titre}</td>
+                    <td id=\"annee-{$this->id}\">{$this->annee}</td>
+                    <td id=\"technique-{$this->id}\">{$this->technique}</td>
+                    <td id=\"support-{$this->id}\">{$this->support}</td>
+                    <td id=\"largeur-{$this->id}\">{$this->largeur}</td>
+                    <td id=\"hauteur-{$this->id}\">{$this->hauteur}</td>
+                    <td id=\"prix-{$this->id}\">{$this->prix}</td>
+                    <td><img id=\"petiteImage-{$this->id}\" src=\"images/{$this->getPetiteImage()}\" height=\"20\" alt=\"image_{$this->getGrandeImage()}\"></td>
+                    <td><img id=\"grandeImage-{$this->id}\" src=\"images/{$this->getGrandeImage()}\" height=\"20\" alt=\"image_{$this->getGrandeImage()}\"></td>
+                    <td style=\"display: flex; justify-content: space-around;\">
+                        <p data-placement=\"top\" data-toggle=\"tooltip\" title=\"Editer\">
+                            <button id=\"edit-{$this->id}\" class=\"btn-edit btn btn-warning btn-xs\" data-title=\"Editer\" data-toggle=\"modal\" data-target=\"#edit\">
+                                <span class=\"glyphicon glyphicon-pencil\"></span>
+                            </button>
+                        </p>
+                        <p data-placement=\"top\" data-toggle=\"tooltip\" title=\"Supprimer\">
+                            <button id=\"delete-{$this->id}\" class=\"btn-del btn btn-danger btn-xs\" data-title=\"Supprimer\" data-toggle=\"modal\" data-target=\"#delete\">
+                                <span class=\"glyphicon glyphicon-trash\"></span>
+                            </button>
+                        </p>
+                    </td>";
+    }
+
     /**
      * Get the value of id
      */ 
