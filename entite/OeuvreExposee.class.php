@@ -6,6 +6,13 @@ class OeuvreExposee {
     private $exposition;
     private $oeuvres = [];
 
+    public function addOeuvre( $oeuvre ) {
+
+        $this->oeuvres [] = $oeuvre;
+
+        return $this;
+    }
+
     /**
      * Permet de formater une Oeuvre Exposée au format HTML 
      *

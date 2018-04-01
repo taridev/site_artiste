@@ -14,8 +14,9 @@
 	}
 
 	else {
+		// Récupération de l'expo et des oeuvres correspondantes
 		$expoOeuvres = $daoOeuvreExpo->findByExposition( $_GET['id'] );
-		
+		// 
 		print $expoOeuvres->exportHtml();
 	}
 	?>

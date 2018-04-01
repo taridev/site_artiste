@@ -84,11 +84,13 @@ class OeuvreDAO {
 
     public function create( $oeuvre ) {
         
+        // Récupération de la connexion
         $connexion = Connexion::getInstance();
-        $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        // Préparation de la requête
         $statement = $connexion->prepare( 'INSERT INTO `OEUVRE` (`id`, `titre`, `annee`, `technique`, `support`, `largeur`, `hauteur`, `prix`, `petiteImage`, `grandeImage`) VALUES (NULL, :titre, :annee, :technique, :support, :largeur, :hauteur, :prix, :petiteImage, :grandeImage)' );
         ;
 
+        // Passage des paramêtres
         $statement->bindValue( ':titre', $oeuvre->getTitre(), PDO::PARAM_STR );
         $statement->bindValue( ':annee', $oeuvre->getAnnee(), PDO::PARAM_INT );
         $statement->bindValue( ':technique', $oeuvre->getTechnique(), PDO::PARAM_STR );
@@ -98,7 +100,7 @@ class OeuvreDAO {
         $statement->bindValue( ':prix', $oeuvre->getPrix(), PDO::PARAM_INT );
         $statement->bindValue( ':petiteImage', $oeuvre->getPetiteImage(), PDO::PARAM_STR );
         $statement->bindValue( ':grandeImage', $oeuvre->getGrandeImage(), PDO::PARAM_STR );
-
+        // Execution de la requête
         $result = $statement->execute();
 
         return $result;

@@ -7,7 +7,7 @@
 
 <body>
     <?php 
-        
+    // Affichage des messages
     include("include/header.php"); 
     if( isset($messages) && count($messages)>0 ) { ?>
     <div class="alert alert-success">
@@ -22,6 +22,7 @@
     </div>
     <?php }
 
+    // Affichage des erreurs
     if( isset($errors) && count($errors)>0 ) { ?>
     <div class="alert alert-danger">
         <ul>
@@ -39,7 +40,7 @@
         <div class="row">
 
             <div class="col-md-12">
-                <h4>Bootstrap Snipp for Datatable</h4>
+                <h4>Table des Oeuvres</h4>
                 <div class="table-responsive">
 
                     <table id="mytable" class="table table-bordred table-striped">
@@ -144,7 +145,7 @@
         </div>
         <!-- FIN ADD -->
 
-
+        <!-- EDIT -->
         <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -204,7 +205,7 @@
         </div>
 
 
-
+        <!-- DELETE -->
         <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -235,6 +236,7 @@
             <!-- /.modal-dialog -->
         </div>
 
+        <!-- DELETE MULTIPLE -->
         <div class="modal fade" id="delete-multiple" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">

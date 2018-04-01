@@ -42,3 +42,8 @@ elseif ( isset($_GET['signin']) ) {
 elseif ( isset($_GET['indexOeuvresAdministration']) OR isset($_POST['indexOeuvresAdministration']) ) {
 	include('controleur/public/indexOeuvresAdministration.php');
 }
+
+elseif ( isset($_GET['indexExpositionsAdministration']) OR isset($_POST['indexExpositionsAdministration']) ) {
+	include('controleur/public/indexExpositionsAdministration.php');
+}
+

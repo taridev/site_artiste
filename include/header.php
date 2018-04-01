@@ -21,7 +21,7 @@
                 <a href="indexSwitch.php?indexOeuvresAdministration=1">administration oeuvres</a>
                 </li>
                 <li>
-                  <a href="#">administration expositions</a>
+                  <a href="indexSwitch.php?indexExpositionsAdministration=1">administration expositions</a>
                 </li>
               </ul>
             </li>
