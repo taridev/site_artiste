@@ -21,12 +21,12 @@ class OeuvreExposeeDAO {
         $statement->execute();
 
         $oeuvres = [];
-        $expo = NULL; 
+        $expo = NULL;
 
         while ( $assoc = $statement->fetch(PDO::FETCH_NAMED) ) {
             if( $expo == NULL ) {
                 $expo = new Exposition();
-                $expo->init( $assoc['id_exposition'], $assoc['nom'], $assoc['lieu'], $assoc['adresse'], $assoc['dateDebut'], $assoc['dateFin'], $assoc['dateVernissage']);
+                $expo->init( $id_expo, $assoc['nom'], $assoc['lieu'], $assoc['adresse'], $assoc['dateDebut'], $assoc['dateFin'], $assoc['dateVernissage']);
             }
             $oeuvre = new Oeuvre();
             $oeuvre->init( $assoc['id_oeuvre'], $assoc['titre'], $assoc['annee'], $assoc['technique'], $assoc['support'], $assoc['largeur'], $assoc['hauteur'], $assoc['prix'][0], $assoc['petiteImage'], $assoc['grandeImage'] );

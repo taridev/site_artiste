@@ -20,6 +20,10 @@ class OeuvreExposee {
      */
     public function exportHtml() {
 
+        if(is_null($this->exposition) or is_null($this->oeuvres) or empty($this->oevures)) {
+            return "<h3>Il n'y a aucune oeuvre pour cette exposition pour le moment.</h3>\n";
+        }
+
         $html = $this->exposition->exportHtml(). "\n";
         foreach ( $this->oeuvres as $oeuvre ) {
             $html .= $oeuvre->exportHtml(). "\n";
